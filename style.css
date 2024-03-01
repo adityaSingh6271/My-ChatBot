@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatBx {
+  width: 80%;
+  height: 90vh;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.chatBx nav {
+  width: 100%;
+  height: 13.5%;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background: #00002e;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.chatBx nav img {
+  width: 140px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.chatBx .btn {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.chatBx .btn .button {
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.chatBx .btn .button:hover {
+  transform: scale(1.2);
+}
+
+.chatBx .btn .lan {
+  transform: scale(1.2);
+}
+
+.chatBx section {
+  width: 100%;
+  height: 77.5%;
+  /*border: 1px solid black;*/
+  /*padding: 0px 20px;*/
+}
+
+.chatBx section .loading {
+  width: 100%;
+  height: auto;
+  /*border: 1px solid #000;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.chatBx section .loading .load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatBx section .loading .load h6 {
+  width: 8px;
+  height: 8px;
+  background: #010c42;
+  border-radius: 50%;
+  margin: 3px 5px;
+  animation: load 1s linear infinite;
+}
+
+.chatBx section .loading .load h6 :nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.chatBx section .loading .load h6 :nth-child(3) {
+  animation-delay: 0.66s;
+}
+
+@keyframes load {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.chatBx section #history {
+  width: 100%;
+  height: 90%;
+   /*border: 1px solid #000;*/
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.chatBx section #history ::-webkit-scrollbar {
+   display: none;
+}
+
+.chatBx section #history .quebx,
+.ansbx {
+  width: 90%;
+  position: relative;
+  /*border: 1px solid #000;*/
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin: 15px 15px;
+}
+
+.chatBx section #history .ansbx {
+  justify-content: flex-start;
+}
+
+.chatBx section #history p {
+  width: 80%;
+  /*border: 1px solid #000;*/
+  white-space: pre-wrap;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  word-break: break-all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .2), 
+  inset 5px 5px 10px rgba(0, 0, 0, .2);
+  border-radius: 8px;
+}
+
+.chatBx section #history .ansbx p {
+  padding-bottom: 30px;
+}
+
+.chatBx section #history .ansbx i {
+  position: absolute;
+  bottom: 10px;
+  left: 78%;
+  cursor: pointer;
+}
+
+
+.chatBx footer {
+  width: 100%;
+  height: 10%;
+  background: #010c42;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatBx footer .search {
+  padding: 8px 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5), inset 5px 5px 10px rgb(0, 0, 0, .5);
+}
+
+.chatBx footer .search input {
+  width: 800px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.chatBx footer .search i {
+  cursor: pointer;
+
+}
+
+@media only screen and (max-width: 768px) {
+  .chatBx {
+    width: 90%;
+    height: 90vh;
+  }
+
+  .chatBx nav img {
+    width: 120px;
+  }
+
+  .chatBx .btn .button {
+    margin-right: 20px;
+  }
+
+  .chatBx section #history .quebx,
+  .chatBx section #history .ansbx {
+    width: 95%;
+    margin: 10px 10px;
+  }
+
+  .chatBx section #history p {
+    width: 85%;
+  }
+
+  .chatBx footer .search input {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .chatBx nav img {
+    width: 100px;
+  }
+
+  .chatBx .btn .button {
+    font-size: 10px;
+    margin-right: 15px;
+  }
+
+  .chatBx section #history .quebx,
+  .chatBx section #history .ansbx {
+    width: 100%;
+    margin: 5px 5px;
+  }
+
+  .chatBx section #history p {
+    width: 100%;
+  }
+
+  .chatBx footer .search input {
+    width: 300px;
+  }
+}
