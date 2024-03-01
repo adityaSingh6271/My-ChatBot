@@ -31,13 +31,22 @@ const fetchData = async (messages) => {
 };
 
 // Function to display messages in the chat interface
+// Function to display messages in the chat interface
 const displayMessage = (message, role) => {
   const historyElement = document.getElementById('history');
   const messageElement = document.createElement('pre');
   messageElement.classList.add(role === 'user' ? 'quebx' : 'ansbx');
   messageElement.innerHTML = `<p>${message}</p>`;
   historyElement.appendChild(messageElement);
+
+  // Conditionally add clipboard icon to the answer box
+  if (role === 'assistant') {
+    const clipboardIcon = document.createElement('i');
+    clipboardIcon.classList.add('bi', 'bi-clipboard-fill');
+    messageElement.appendChild(clipboardIcon);
+  }
 };
+
 
 // Event listener for user input
 document.getElementById("inputicon").addEventListener("click", async function () {
