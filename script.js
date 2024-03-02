@@ -15,8 +15,6 @@ const fetchData = async (messages) => {
       messages: messages
     })
   };
-};
-
 
   try {
     const response = await fetch(url, options);
@@ -33,7 +31,6 @@ const fetchData = async (messages) => {
 };
 
 // Function to display messages in the chat interface
-// Function to display messages in the chat interface
 const displayMessage = (message, role) => {
   const historyElement = document.getElementById('history');
   const messageElement = document.createElement('pre');
@@ -48,7 +45,6 @@ const displayMessage = (message, role) => {
     messageElement.appendChild(clipboardIcon);
   }
 };
-
 
 // Event listener for user input
 document.getElementById("inputicon").addEventListener("click", async function () {
@@ -106,7 +102,6 @@ document.getElementById("input").addEventListener("keypress", async function (ev
     }
   }
 });
-
 
 // Event listener for language selection buttons
 Array.from(document.getElementsByClassName('button')).forEach((el) => {
