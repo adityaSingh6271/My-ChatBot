@@ -2,7 +2,7 @@
 const fetchData = async (messages) => {
   const url = 'https://api.openai.com/v1/chat/completions';
   const modelId = 'gpt-3.5-turbo'; // Set the model ID
-  const apiKey = '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'; // Replace 'YOUR_API_KEY' with your OpenAI API key
+  const apiKey = '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'; // Replace 'YOUR_API_KEY' with your OpenAI API key
 
   const options = {
     method: 'POST',
@@ -15,6 +15,8 @@ const fetchData = async (messages) => {
       messages: messages
     })
   };
+};
+
 
   try {
     const response = await fetch(url, options);
