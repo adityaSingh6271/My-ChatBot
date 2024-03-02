@@ -1,8 +1,8 @@
 // Function to fetch data from OpenAI API
 const fetchData = async (messages) => {
   const url = 'https://api.openai.com/v1/chat/completions';
-  const modelId = 'gpt-3.5-turbo'; // Set the model ID
-  const apiKey = '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'; // Replace 'YOUR_API_KEY' with your OpenAI API key
+  const modelId = 'gpt-3.5-turbo';
+  const apiKey = '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';
 
   const options = {
     method: 'POST',
@@ -12,18 +12,26 @@ const fetchData = async (messages) => {
     },
     body: JSON.stringify({
       model: modelId,
-      messages: messages
+      messages: messages,
+      max_tokens: 150,
+      presence_penalty: 0.5,
+      frequency_penalty: 0.5
     })
   };
 
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    // Display the bot's response in the chat interface
-    displayMessage(result.choices[0].message.content, 'assistant');
+    if (result.choices && result.choices.length > 0 && result.choices[0].message && result.choices[0].message.content) {
+      displayMessage(result.choices[0].message.content, 'assistant');
+    } else {
+      console.error('Unexpected response format:', result);
+      document.getElementsByClassName('loading')[0].innerHTML = 'Unexpected response from server';
+    }
     document.getElementsByClassName('loading')[0].style.display = 'none';
   } catch (error) {
-    document.getElementsByClassName('loading')[0].innerHTML = 'Not Found';
+    console.error('Error fetching data:', error);
+    document.getElementsByClassName('loading')[0].innerHTML = 'Error fetching data';
   } finally {
     document.getElementById('input').value = '';
     document.getElementById("inputicon").style.cursor = 'pointer';
